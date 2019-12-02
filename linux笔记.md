@@ -53,3 +53,12 @@ do
         ${pushx}
 done
 ```
+### 查看当前机器端口连接情况
+netstat -anp  | grep ESTABLISHED   
+
+
+### split 中的坑  
+split -b 2k -a 5 -d filename prefix  
+-b 按照大小切割，-a 新文件名字prefix有多长， -d 新文件以number为结尾，  
+坑：如果按照大小切割，那么最后一行可能被截断，一半在前一个文件，一半在后一个文件  
+
