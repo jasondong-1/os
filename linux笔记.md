@@ -64,3 +64,6 @@ split -b 2k -a 5 -d filename prefix
 
 ### xargs cp  
 find ./ -name *.jar| grep -v lib | grep target |xargs -i cp {} ~/aa  
+
+### win10端口转发  
+netsh interface portproxy add v4tov4 listenport=81 connectport=80 connectaddress= 192.168.0.205 protocol=tcp  
