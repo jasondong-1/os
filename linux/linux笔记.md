@@ -70,3 +70,41 @@ netsh interface portproxy add v4tov4 listenport=81 connectport=80 connectaddress
 
 
 ### netstat -an 
+
+### 查看系统是centos还是ubuntu  
+lsb_release -a 
+
+### alias unalias
+alias llt='ll -rt'
+unalias llt
+
+### awk 
+语法：cat filename | awk -F "分隔符" '条件1 {动作1} 条件2 {动作2}'  
+假设有以下文件：  
+```
+jason\t1
+dong\t2
+tom\t5
+lee\t6
+```
+要求如果第二列小于3 则 打印第一列，否则打印第二列  
+```
+cat ak |awk -F "\t" '$2<3 {print $1} $2>3{print $2}'
+```
+
+### chown 改变文件所有者  
+递归更改filename 所有者   
+chown -R user:group filename  
+
+###  rwx权限解释  
+```
+对于文件
+r:读取文件内容
+w:增删改文件内容，但是不能删除文件
+x:执行权限
+
+对于目录
+r:查看文件夹下的内容
+w:新建，删除，重命名文件，文件夹
+x:进入目录
+```
