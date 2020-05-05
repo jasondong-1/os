@@ -565,3 +565,9 @@ jason@DESKTOP-T9SOHC8:~/jj$
 
 ###  man echo 
 
+### shell 的追踪  
+[root@www ~]# sh [-nvx] scripts.sh  
+选项与参数：  
+-n  ：不要运行 script，仅查询语法的问题；  
+-v  ：再运行 sccript 前，先将 scripts 的内容输出到萤幕上；  
+-x  ：将使用到的 script 内容显示到萤幕上，这是很有用的参数！  

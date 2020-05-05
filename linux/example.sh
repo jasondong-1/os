@@ -59,3 +59,33 @@ esac
 
 printx "----case ----\n"
 
+printx "----while loop----"
+i=0
+s=0
+while [ $i -lt 100 -a $s -lt 1000 ]
+do
+ s=$(($s+$i))
+ i=$(($i+1))
+done
+
+printx " while 遍历文件"
+cat jj.sh | while read line
+do
+ echo "${line}"
+done
+
+printx "----while loop----\n"
+
+printx "----for loop----"
+printx "for 遍历文件，会按空格切分，建议使用while遍历文件"
+for line in $(cat jj.sh)
+do
+ echo $line
+done
+sum=0
+for ((i=0;i<100;i++))
+do
+ sum=$(($sum+$i))
+done
+echo -e "sum = $sum"
+printx "----for loop----\n"
