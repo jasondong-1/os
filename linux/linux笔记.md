@@ -209,7 +209,8 @@ jason@DESKTOP-T9SOHC8:~$
 
 ### 变量的设置与解除  
 ```
-jason@DESKTOP-T9SOHC8:~$ export name=jason #设置环境变量，可以在子进程中使用变量  
+jason@DESKTOP-T9SOHC8:~$ export name=jason #设置环境变量，可以在子进程中使用变量,如果不export  
+则不能在子进程中使用  
 jason@DESKTOP-T9SOHC8:~$ bash #进入子进程  
 jason@DESKTOP-T9SOHC8:~$ echo $name
 jason
@@ -570,4 +571,13 @@ jason@DESKTOP-T9SOHC8:~/jj$
 选项与参数：  
 -n  ：不要运行 script，仅查询语法的问题；  
 -v  ：再运行 sccript 前，先将 scripts 的内容输出到萤幕上；  
--x  ：将使用到的 script 内容显示到萤幕上，这是很有用的参数！  
+-x  ：将使用到的 script 内容显示到萤幕上，这是很有用的参数！
+
+### source sh ./
+执行脚本有三种方式:  
+source script  
+\[sh | bash] script  
+./script  
+三种方式有何区别?   
+source 是在父进程中执行脚本  
+sh 是在子进程中执行脚本,子进程可以访问父进程的环境变量(export) 
