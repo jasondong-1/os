@@ -3,6 +3,56 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [1.linux rwx 权限解读](#1linux-rwx-%E6%9D%83%E9%99%90%E8%A7%A3%E8%AF%BB)
+- [查看端口占用情况](#%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5)
+- [查看linux版本](#%E6%9F%A5%E7%9C%8Blinux%E7%89%88%E6%9C%AC)
+- [ssh 建立隧道](#ssh-%E5%BB%BA%E7%AB%8B%E9%9A%A7%E9%81%93)
+- [一段脚本，包含了替换以及执行命令](#%E4%B8%80%E6%AE%B5%E8%84%9A%E6%9C%AC%E5%8C%85%E5%90%AB%E4%BA%86%E6%9B%BF%E6%8D%A2%E4%BB%A5%E5%8F%8A%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4)
+- [查看当前机器端口连接情况](#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E6%9C%BA%E5%99%A8%E7%AB%AF%E5%8F%A3%E8%BF%9E%E6%8E%A5%E6%83%85%E5%86%B5)
+- [split 中的坑](#split-%E4%B8%AD%E7%9A%84%E5%9D%91)
+- [xargs cp](#xargs-cp)
+- [win10端口转发](#win10%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91)
+- [netstat -an](#netstat--an)
+- [查看系统是centos还是ubuntu](#%E6%9F%A5%E7%9C%8B%E7%B3%BB%E7%BB%9F%E6%98%AFcentos%E8%BF%98%E6%98%AFubuntu)
+- [alias unalias](#alias-unalias)
+- [awk](#awk)
+- [chown 改变文件所有者](#chown-%E6%94%B9%E5%8F%98%E6%96%87%E4%BB%B6%E6%89%80%E6%9C%89%E8%80%85)
+- [rwx权限解释](#rwx%E6%9D%83%E9%99%90%E8%A7%A3%E9%87%8A)
+- [crontab](#crontab)
+- [cut 命令](#cut-%E5%91%BD%E4%BB%A4)
+- [date](#date)
+- [cal  查看日历](#cal--%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%8E%86)
+- [bc 计算器，quit 退出](#bc-%E8%AE%A1%E7%AE%97%E5%99%A8quit-%E9%80%80%E5%87%BA)
+- [df du](#df-du)
+- [grep](#grep)
+- [diff 比较文件的差异](#diff-%E6%AF%94%E8%BE%83%E6%96%87%E4%BB%B6%E7%9A%84%E5%B7%AE%E5%BC%82)
+- [变量的设置与解除](#%E5%8F%98%E9%87%8F%E7%9A%84%E8%AE%BE%E7%BD%AE%E4%B8%8E%E8%A7%A3%E9%99%A4)
+- [free 查看内存使用情况](#free-%E6%9F%A5%E7%9C%8B%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5)
+- [file 查看文件类型](#file-%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B)
+- [which 查看当前用户PATH变量中的所有命令](#which-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7path%E5%8F%98%E9%87%8F%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%91%BD%E4%BB%A4)
+- [whereis locate](#whereis-locate)
+- [find 命令](#find-%E5%91%BD%E4%BB%A4)
+- [head tail](#head-tail)
+- [jobs](#jobs)
+- [md5sum](#md5sum)
+- [ps -ef 查看系统进程](#ps--ef-%E6%9F%A5%E7%9C%8B%E7%B3%BB%E7%BB%9F%E8%BF%9B%E7%A8%8B)
+- [sed](#sed)
+- [service](#service)
+- [sort](#sort)
+- [split](#split)
+- [su 切换用户](#su-%E5%88%87%E6%8D%A2%E7%94%A8%E6%88%B7)
+- [sudo 切换到其他用户执行命令](#sudo-%E5%88%87%E6%8D%A2%E5%88%B0%E5%85%B6%E4%BB%96%E7%94%A8%E6%88%B7%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4)
+- [tee 双向重定向](#tee-%E5%8F%8C%E5%90%91%E9%87%8D%E5%AE%9A%E5%90%91)
+- [查看当前登录的用户](#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%99%BB%E5%BD%95%E7%9A%84%E7%94%A8%E6%88%B7)
+- [; && ||](#--)
+- [标准输入](#%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5)
+- [stdout  stderr](#stdout--stderr)
+- [改变dos换行符为linux换行符](#%E6%94%B9%E5%8F%98dos%E6%8D%A2%E8%A1%8C%E7%AC%A6%E4%B8%BAlinux%E6%8D%A2%E8%A1%8C%E7%AC%A6)
+- [iconv 更改文件编码格式](#iconv-%E6%9B%B4%E6%94%B9%E6%96%87%E4%BB%B6%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F)
+- [查看系统所有环境变量](#%E6%9F%A5%E7%9C%8B%E7%B3%BB%E7%BB%9F%E6%89%80%E6%9C%89%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F)
+- [echo -e 允许后面使用转义，默认是不允许的](#echo--e-%E5%85%81%E8%AE%B8%E5%90%8E%E9%9D%A2%E4%BD%BF%E7%94%A8%E8%BD%AC%E4%B9%89%E9%BB%98%E8%AE%A4%E6%98%AF%E4%B8%8D%E5%85%81%E8%AE%B8%E7%9A%84)
+- [man echo](#man-echo)
+- [shell 的追踪](#shell-%E7%9A%84%E8%BF%BD%E8%B8%AA)
+- [source sh ./](#source-sh-)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -455,7 +505,7 @@ jason@DESKTOP-T9SOHC8:~$
 ### 查看当前登录的用户  
 ```bash
 [lxadmin@dmp-dn-010 ~]$ w
- 19:31:55 up 298 days, 11:07,  5 users,  load average: 0.04, 0.05, 0.05
+`` 19:31:55 up 298 days, 11:07,  5 users,  load average: 0.04, 0.05, 0.05
 USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
 lxadmin  pts/0    192.168.1.48     18:22    1:00m  0.05s  0.01s sshd: lxadmin [priv]
 lxadmin  pts/3    192.168.1.48     18:19   56:59   0.15s  0.01s sshd: lxadmin [priv]
