@@ -1,0 +1,22 @@
+#!/usr/bin/expect
+
+if { $argc != 5 } {
+    puts "Usage: expect $argv0 user host passwd file dir"
+    exit
+}
+
+set user [lindex $argv 0]
+set host [lindex $argv 1]
+set passwd [lindex $argv 2]
+set file [lindex $argv 3]
+set dir [lindex $argv 4]
+
+spawn scp -P22 -rp $file $user@$host:$dir
+
+expect {
+    "yes/no"    {send   "yes\r";exp_continue}
+    "*password" {send   "$passwd\r"}
+}
+
+expect eof
+
