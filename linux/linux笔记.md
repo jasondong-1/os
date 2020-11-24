@@ -630,4 +630,16 @@ source script
 ./script  
 三种方式有何区别?   
 source 是在父进程中执行脚本  
-sh 是在子进程中执行脚本,子进程可以访问父进程的环境变量(export) 
+sh 是在子进程中执行脚本,子进程可以访问父进程的环境变量(export)
+
+###  java.lang.OutOfMemoryError: unable to create new native thread
+
+[参考一](https://blog.csdn.net/yuxin6866/article/details/83791648)
+[参考二](https://www.cnblogs.com/sprinng/p/6900276.html)
+echo "* - nofile 1024000" >> /etc/security/limits.conf
+echo -e "* - nofile 1024000\n* - nproc 1024000" > /etc/security/limits.d/20-nproc.conf
+
+
+### 查看进程起的线程数量  
+top -H -p  <pid>  
+ps huH p  <pid> | wc -l  
